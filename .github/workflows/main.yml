@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2 # accesses the built in variable called $GITHUB_WORKSPACE
+    - name: hello world action step
+      id: hello
+      uses: ./
+      with:
+        who-to-greet: 'Carelolo'
+    # Use the output from the hello steps
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
