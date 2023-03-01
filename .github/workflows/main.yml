@@ -9,7 +9,7 @@ jobs:
       uses: actions/checkout@v2 # accesses the built in variable called $GITHUB_WORKSPACE
     - name: hello world action step
       id: hello
-      uses: ./
+      uses: ./index.js
       with:
         who-to-greet: 'Carelolo'
     # Use the output from the hello steps
